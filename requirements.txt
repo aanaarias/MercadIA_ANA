@@ -1,0 +1,27 @@
+# ==================== DEPENDENCIAS PRINCIPALES ====================
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+python-multipart==0.0.12
+jinja2==3.1.4
+
+# ==================== MODELOS Y VALIDACIÓN ====================
+pydantic==2.9.2
+pydantic-settings==2.5.2
+
+# ==================== BASE DE DATOS (para producción) ====================
+# sqlalchemy==2.0.36
+# psycopg2-binary==2.9.10  # PostgreSQL
+# alembic==1.14.0  # Migraciones
+
+# ==================== INTEGRACIÓN CON IA ====================
+# openai==1.54.3  # Para generar recetas con GPT
+# anthropic==0.39.0  # Claude como alternativa
+
+# ==================== UTILIDADES ====================
+python-dotenv==1.0.1
+requests==2.32.3
+
+# ==================== TESTING (desarrollo) ====================
+# pytest==8.3.3
+# pytest-asyncio==0.24.0
+# httpx==0.27.2

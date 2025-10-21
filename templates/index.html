@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SupermercAI - Generador de Menús Semanales</title>
+    <meta name="description" content="Genera menús semanales personalizados y añade automáticamente los ingredientes a tu carrito">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/static/img/favicon.ico">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/static/css/style.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>🛒 SupermercAI</h1>
+                </div>
+                <nav class="nav">
+                    <a href="#inicio">Inicio</a>
+                    <a href="#como-funciona">Cómo funciona</a>
+                    <a href="#recetas">Mis Recetas</a>
+                    <button class="btn-cart" id="btnCarrito">
+                        🛍️ Carrito <span class="cart-badge" id="cartBadge">0</span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <div class="hero-content">
+                <h2 class="hero-title">Tu menú semanal en 2 minutos</h2>
+                <p class="hero-subtitle">Genera menús personalizados según tus objetivos y añade todos los ingredientes al carrito automáticamente</p>
+                <button class="btn-primary btn-lg" id="btnEmpezar">✨ Generar mi menú semanal</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulario de Preferencias (Modal) -->
+    <div class="modal" id="modalPreferencias">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Personaliza tu menú semanal</h3>
+                <button class="modal-close" id="btnCerrarModal">&times;</button>
+            </div>
+            <form id="formPreferencias">
+                <div class="form-group">
+                    <label for="objetivo">¿Cuál es tu objetivo?</label>
+                    <select id="objetivo" name="objetivo" required>
+                        <option value="">Selecciona una opción</option>
+                        <option value="ganar_masa">Ganar masa muscular</option>
+                        <option value="definir">Definir/Tonificar</option>
+                        <option value="adelgazar">Adelgazar</option>
+                        <option value="comer_sano">Comer más sano</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="tiempo_cocina">Tiempo disponible para cocinar</label>
+                    <select id="tiempo_cocina" name="tiempo_cocina" required>
+                        <option value="poco">Poco tiempo (< 30 min)</option>
+                        <option value="medio">Tiempo medio (30-45 min)</option>
+                        <option value="mucho">Mucho tiempo (> 45 min)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="num_personas">Número de personas</label>
+                    <input type="number" id="num_personas" name="num_personas" value="2" min="1" max="10" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="presupuesto">Presupuesto semanal (€)</label>
+                    <input type="number" id="presupuesto" name="presupuesto" value="50" min="20" max="200" step="5" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="estilo_cocina">Estilo de cocina</label>
+                    <select id="estilo_cocina" name="estilo_cocina" required>
+                        <option value="mediterranea">Mediterránea</option>
+                        <option value="asiatica">Asiática</option>
+                        <option value="vegetariana">Vegetariana</option>
+                        <option value="mexicana">Mexicana</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="preferencia_marca">Preferencia de marca</label>
+                    <select id="preferencia_marca" name="preferencia_marca" required>
+                        <option value="marca_blanca">Marca blanca</option>
+                        <option value="otras">Otras marcas</option>
+                        <option value="mixta">Mixta</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-primary btn-block">🎯 Generar Menú</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Sección de Menú Generado -->
+    <section class="menu-section hidden" id="menuSection">
+        <div class="container">
+            <div class="section-header">
+                <h2>Tu menú semanal personalizado</h2>
+                <p class="menu-cost">Costo estimado: <strong id="costoTotal">€0.00</strong></p>
+            </div>
+
+            <div class="menu-grid" id="menuGrid">
+                <!-- Las recetas se cargarán dinámicamente aquí -->
+            </div>
+
+            <div class="menu-actions">
+                <button class="btn-secondary" id="btnRegenerarTodo">🔄 Regenerar todo el menú</button>
+                <button class="btn-primary btn-lg" id="btnConfirmarMenu">✅ Confirmar y añadir al carrito</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal de Detalle de Receta -->
+    <div class="modal" id="modalReceta">
+        <div class="modal-content modal-lg">
+            <div class="modal-header">
+                <h3 id="recetaTitulo">Nombre de la Receta</h3>
+                <button class="modal-close" id="btnCerrarReceta">&times;</button>
+            </div>
+            <div class="recipe-detail" id="recetaDetalle">
+                <!-- Contenido dinámico -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Cómo Funciona -->
+    <section class="how-it-works" id="como-funciona">
+        <div class="container">
+            <h2 class="section-title">¿Cómo funciona?</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Dinos tus preferencias</h3>
+                    <p>Objetivos, alergias, presupuesto y estilo de cocina</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Generamos tu menú</h3>
+                    <p>IA crea recetas personalizadas para toda la semana</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Edita y confirma</h3>
+                    <p>Cambia recetas, ajusta porciones o ingredientes</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Compra automática</h3>
+                    <p>Todos los ingredientes se añaden al carrito</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 SupermercAI. Desarrollado con FastAPI y ❤️</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="/static/js/script.js"></script>
+</body>
+</html>

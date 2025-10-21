@@ -1,0 +1,574 @@
+/* ==================== VARIABLES CSS ==================== */
+:root {
+  /* Colores principales */
+  --color-primary: #2563eb;
+  --color-primary-dark: #1e40af;
+  --color-secondary: #10b981;
+  --color-accent: #f59e0b;
+  
+  /* Colores de fondo */
+  --bg-body: #f9fafb;
+  --bg-card: #ffffff;
+  --bg-hover: #f3f4f6;
+  
+  /* Colores de texto */
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --text-white: #ffffff;
+  
+  /* Sombras */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  
+  /* Espaciados */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  
+  /* Border radius */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-full: 9999px;
+  
+  /* Transiciones */
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==================== RESET Y BASE ==================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-body);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ==================== HEADER ==================== */
+.header {
+  background-color: var(--bg-card);
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: var(--spacing-sm) 0;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.nav a:hover {
+  color: var(--color-primary);
+}
+
+/* ==================== BOTONES ==================== */
+.btn-primary,
+.btn-secondary,
+.btn-cart {
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--text-white);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-primary);
+  color: var(--text-white);
+}
+
+.btn-lg {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.btn-cart {
+  background-color: var(--color-secondary);
+  color: var(--text-white);
+  position: relative;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: var(--color-accent);
+  color: white;
+  border-radius: var(--radius-full);
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+/* ==================== HERO SECTION ==================== */
+.hero {
+  background: linear-gradient(135deg, var(--color-primary) 0%, #1e40af 100%);
+  padding: var(--spacing-xl) 0;
+  text-align: center;
+  color: var(--text-white);
+}
+
+.hero-content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  margin-bottom: var(--spacing-lg);
+  opacity: 0.95;
+}
+
+/* ==================== MODAL ==================== */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: slideUp 0.3s ease;
+  box-shadow: var(--shadow-lg);
+}
+
+.modal-lg {
+  max-width: 800px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 2px solid var(--bg-hover);
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  line-height: 1;
+}
+
+.modal-close:hover {
+  color: var(--text-primary);
+}
+
+/* ==================== FORMULARIO ==================== */
+.form-group {
+  margin-bottom: var(--spacing-md);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #e5e7eb;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* ==================== MENÚ SEMANAL ==================== */
+.menu-section {
+  padding: var(--spacing-xl) 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.section-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-xs);
+}
+
+.menu-cost {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+}
+
+.menu-cost strong {
+  color: var(--color-secondary);
+  font-size: 1.5rem;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.recipe-card {
+  background-color: var(--bg-card);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+}
+
+.recipe-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.recipe-image {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+}
+
+.recipe-content {
+  padding: var(--spacing-md);
+}
+
+.recipe-day {
+  display: inline-block;
+  background-color: var(--color-primary);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-xs);
+}
+
+.recipe-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: var(--spacing-xs);
+}
+
+.recipe-content p {
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.recipe-meta {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.recipe-actions {
+  display: flex;
+  gap: var(--spacing-xs);
+}
+
+.recipe-actions button {
+  flex: 1;
+  padding: 0.5rem;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.btn-view {
+  background-color: var(--bg-hover);
+  color: var(--color-primary);
+}
+
+.btn-view:hover {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.btn-regenerate {
+  background-color: var(--color-accent);
+  color: white;
+}
+
+.btn-regenerate:hover {
+  opacity: 0.9;
+}
+
+.menu-actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+}
+
+/* ==================== DETALLE DE RECETA ==================== */
+.recipe-detail {
+  padding: var(--spacing-md) 0;
+}
+
+.ingredients-section,
+.steps-section {
+  margin-bottom: var(--spacing-lg);
+}
+
+.ingredients-section h4,
+.steps-section h4 {
+  font-size: 1.5rem;
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-primary);
+}
+
+.ingredients-list {
+  list-style: none;
+  padding: 0;
+}
+
+.ingredients-list li {
+  padding: var(--spacing-sm);
+  background-color: var(--bg-hover);
+  margin-bottom: var(--spacing-xs);
+  border-radius: var(--radius-md);
+  display: flex;
+  justify-content: space-between;
+}
+
+.steps-list {
+  counter-reset: step-counter;
+  list-style: none;
+  padding: 0;
+}
+
+.steps-list li {
+  counter-increment: step-counter;
+  padding: var(--spacing-sm);
+  padding-left: var(--spacing-xl);
+  position: relative;
+  margin-bottom: var(--spacing-sm);
+}
+
+.steps-list li::before {
+  content: counter(step-counter);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--color-primary);
+  color: white;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+/* ==================== CÓMO FUNCIONA ==================== */
+.how-it-works {
+  padding: var(--spacing-xl) 0;
+  background-color: white;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-lg);
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.step-card {
+  text-align: center;
+  padding: var(--spacing-lg);
+}
+
+.step-number {
+  width: 4rem;
+  height: 4rem;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 auto var(--spacing-sm);
+}
+
+.step-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: var(--spacing-xs);
+}
+
+.step-card p {
+  color: var(--text-secondary);
+}
+
+/* ==================== FOOTER ==================== */
+.footer {
+  background-color: var(--text-primary);
+  color: var(--text-white);
+  text-align: center;
+  padding: var(--spacing-lg) 0;
+  margin-top: var(--spacing-xl);
+}
+
+/* ==================== ANIMACIONES ==================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .nav {
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+  
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .menu-actions {
+    flex-direction: column;
+  }
+  
+  .steps-grid {
+    grid-template-columns: 1fr;
+  }
+}
