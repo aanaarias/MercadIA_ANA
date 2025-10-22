@@ -1,3 +1,10 @@
+# --- Python ---
+__pycache__/
+*.pyc
+
+# --- Entorno virtual ---
+.venv/
+
 # Logs
 logs
 *.log
