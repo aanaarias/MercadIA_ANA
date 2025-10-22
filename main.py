@@ -3,7 +3,7 @@ SUPERMERCAI - Generador de Menús Semanales
 FastAPI Backend Application
 """
 
-from fastapi import FastAPI, Request, HTTPException
+from fastapi import FastAPI, Request, HTTPException, Body
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import HTMLResponse, JSONResponse
@@ -488,51 +488,37 @@ async def regenerar_receta(dia: int, preferencias: UserPreferences):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
+
 @app.post("/api/agregar-a-carrito")
-async def agregar_a_carrito(recetas_ids: List[int]):
-    """
-    Convierte las recetas seleccionadas en items del carrito
-    Consolida ingredientes duplicados
-    """
-    try:
-        carrito = {}
-        
-        # Consolidar ingredientes de todas las recetas
-        for receta_id in recetas_ids:
-            receta = next((r for r in RECETAS_EJEMPLO if r["id"] == receta_id), None)
-            if not receta:
-                continue
-            
-            for ing in receta["ingredientes"]:
-                key = f"{ing['producto_id']}"
-                
-                if key in carrito:
-                    carrito[key]["cantidad"] += ing["cantidad"]
-                    carrito[key]["precio"] += ing["precio"]
-                else:
-                    carrito[key] = {
-                        "producto_id": ing["producto_id"],
-                        "nombre": ing["nombre"],
-                        "cantidad": ing["cantidad"],
-                        "unidad": ing["unidad"],
-                        "precio": ing["precio"],
-                        "recetas": [receta_id]
-                    }
-        
-        items_carrito = list(carrito.values())
-        total = sum(item["precio"] for item in items_carrito)
-        
-        return {
-            "success": True,
-            "carrito": {
-                "items": items_carrito,
-                "total": round(total, 2),
-                "num_items": len(items_carrito)
-            }
-        }
-    
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+async def agregar_a_carrito(recetas_ids: List[int] = Body(..., embed=True)):
+    carrito = {}
+
+    for receta_id in recetas_ids:
+        receta = next((r for r in RECETAS_EJEMPLO if r["id"] == receta_id), None)
+        if not receta:
+            continue
+
+        for ing in receta["ingredientes"]:
+            key = str(ing["producto_id"])
+            if key in carrito:
+                carrito[key]["cantidad"] += ing["cantidad"]
+                carrito[key]["precio"] += ing["precio"]
+                # (opcional) registrar en qué recetas aparece:
+                carrito[key]["recetas"].append(receta_id)
+            else:
+                carrito[key] = {
+                    "producto_id": ing["producto_id"],
+                    "nombre": ing["nombre"],
+                    "cantidad": ing["cantidad"],
+                    "unidad": ing["unidad"],
+                    "precio": ing["precio"],
+                    "recetas": [receta_id],
+                }
+
+    items_carrito = list(carrito.values())
+    total = round(sum(item["precio"] for item in items_carrito), 2)
+    return {"success": True, "carrito": {"items": items_carrito, "total": total, "num_items": len(items_carrito)}}
+
 
 @app.get("/api/receta/{receta_id}")
 async def obtener_receta(receta_id: int):
