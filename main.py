@@ -130,8 +130,290 @@ RECETAS_EJEMPLO = [
             "Cocinar la pasta al dente",
             "Mezclar pasta con salsa y albahaca"
         ]
+    },
+    {
+        "id": 4,
+        "nombre": "Tortilla de Espinacas",
+        "descripcion": "Tortilla ligera con espinacas frescas",
+        "tiempo_preparacion": 15,
+        "calorias": 250,
+        "imagen_url": "/static/img/tortilla-espinacas.jpg",
+        "tipo_comida": "desayuno",
+        "ingredientes": [
+            {"nombre": "Huevos", "cantidad": 3, "unidad": "unidades", "producto_id": 12, "precio": 0.75},
+            {"nombre": "Espinacas frescas", "cantidad": 100, "unidad": "g", "producto_id": 13, "precio": 1.00},
+            {"nombre": "Aceite de oliva", "cantidad": 1, "unidad": "cucharada", "producto_id": 4, "precio": 0.10}
+        ],
+        "pasos": [
+            "Batir los huevos en un bol",
+            "Saltear las espinacas en aceite",
+            "Añadir los huevos y cocinar a fuego medio",
+            "Doblar la tortilla y servir caliente"
+        ]
+    },
+    {
+        "id": 5,
+        "nombre": "Crema de Calabaza",
+        "descripcion": "Sopa cremosa de calabaza con toque de jengibre",
+        "tiempo_preparacion": 35,
+        "calorias": 300,
+        "imagen_url": "/static/img/crema-calabaza.jpg",
+        "tipo_comida": "cena",
+        "ingredientes": [
+            {"nombre": "Calabaza", "cantidad": 500, "unidad": "g", "producto_id": 14, "precio": 2.00},
+            {"nombre": "Cebolla", "cantidad": 1, "unidad": "unidad", "producto_id": 15, "precio": 0.40},
+            {"nombre": "Jengibre", "cantidad": 10, "unidad": "g", "producto_id": 16, "precio": 0.30},
+            {"nombre": "Caldo de verduras", "cantidad": 500, "unidad": "ml", "producto_id": 17, "precio": 0.80}
+        ],
+        "pasos": [
+            "Pelar y cortar la calabaza y cebolla",
+            "Saltear con jengibre en una olla",
+            "Añadir el caldo y cocinar 25 minutos",
+            "Triturar hasta obtener una crema suave"
+        ]
+    },
+    {
+        "id": 6,
+        "nombre": "Yogur con Frutas y Miel",
+        "descripcion": "Desayuno saludable con frutas frescas",
+        "tiempo_preparacion": 10,
+        "calorias": 200,
+        "imagen_url": "/static/img/yogur-frutas.jpg",
+        "tipo_comida": "desayuno",
+        "ingredientes": [
+            {"nombre": "Yogur natural", "cantidad": 150, "unidad": "g", "producto_id": 18, "precio": 0.60},
+            {"nombre": "Frutas variadas", "cantidad": 100, "unidad": "g", "producto_id": 19, "precio": 1.20},
+            {"nombre": "Miel", "cantidad": 1, "unidad": "cucharada", "producto_id": 20, "precio": 0.40}
+        ],
+        "pasos": [
+            "Colocar el yogur en un bol",
+            "Añadir las frutas troceadas",
+            "Rociar con miel al gusto"
+        ]
+    },
+    {
+        "id": 7,
+        "nombre": "Arroz con Pollo",
+        "descripcion": "Plato tradicional con arroz y pollo",
+        "tiempo_preparacion": 40,
+        "calorias": 550,
+        "imagen_url": "/static/img/arroz-pollo.jpg",
+        "tipo_comida": "comida",
+        "ingredientes": [
+            {"nombre": "Arroz", "cantidad": 200, "unidad": "g", "producto_id": 21, "precio": 0.90},
+            {"nombre": "Muslos de pollo", "cantidad": 400, "unidad": "g", "producto_id": 22, "precio": 3.50},
+            {"nombre": "Pimiento rojo", "cantidad": 1, "unidad": "unidad", "producto_id": 2, "precio": 0.90},
+            {"nombre": "Caldo de pollo", "cantidad": 500, "unidad": "ml", "producto_id": 23, "precio": 1.00}
+        ],
+        "pasos": [
+            "Dorar el pollo en una cazuela",
+            "Añadir el pimiento troceado",
+            "Incorporar el arroz y el caldo",
+            "Cocinar a fuego medio hasta que el arroz esté listo"
+        ]
+    },
+    {
+        "id": 8,
+        "nombre": "Salmón a la Plancha con Limón",
+        "descripcion": "Salmón jugoso con toque cítrico",
+        "tiempo_preparacion": 20,
+        "calorias": 400,
+        "imagen_url": "/static/img/salmon-limon.jpg",
+        "tipo_comida": "cena",
+        "ingredientes": [
+            {"nombre": "Filete de salmón", "cantidad": 250, "unidad": "g", "producto_id": 24, "precio": 4.00},
+            {"nombre": "Limón", "cantidad": 1, "unidad": "unidad", "producto_id": 25, "precio": 0.50},
+            {"nombre": "Aceite de oliva", "cantidad": 1, "unidad": "cucharada", "producto_id": 4, "precio": 0.10}
+        ],
+        "pasos": [
+            "Calentar la plancha con aceite",
+            "Cocinar el salmón por ambos lados",
+            "Añadir jugo de limón al final"
+        ]
+    },
+    {
+        "id": 9,
+        "nombre": "Tostadas con Aguacate",
+        "descripcion": "Tostadas crujientes con aguacate cremoso",
+        "tiempo_preparacion": 10,
+        "calorias": 300,
+        "imagen_url": "/static/img/tostadas-aguacate.jpg",
+        "tipo_comida": "desayuno",
+        "ingredientes": [
+            {"nombre": "Pan integral", "cantidad": 2, "unidad": "rebanadas", "producto_id": 26, "precio": 0.60},
+            {"nombre": "Aguacate", "cantidad": 1, "unidad": "unidad", "producto_id": 27, "precio": 1.20},
+            {"nombre": "Sal", "cantidad": 1, "unidad": "pizca", "producto_id": 28, "precio": 0.05}
+        ],
+        "pasos": [
+            "Tostar el pan",
+            "Machacar el aguacate y sazonar",
+            "Untar sobre las tostadas"
+        ]
+    },
+    {
+        "id": 10,
+        "nombre": "Lentejas con Verduras",
+        "descripcion": "Plato nutritivo de lentejas con vegetales",
+        "tiempo_preparacion": 50,
+        "calorias": 480,
+        "imagen_url": "/static/img/lentejas-verduras.jpg",
+        "tipo_comida": "comida",
+        "ingredientes": [
+            {"nombre": "Lentejas", "cantidad": 300, "unidad": "g", "producto_id": 29, "precio": 1.50},
+            {"nombre": "Zanahoria", "cantidad": 2, "unidad": "unidades", "producto_id": 30, "precio": 0.80},
+            {"nombre": "Cebolla", "cantidad": 1, "unidad": "unidad", "producto_id": 15, "precio": 0.40},
+            {"nombre": "Pimiento verde", "cantidad": 1, "unidad": "unidad", "producto_id": 31, "precio": 0.70}
+        ],
+        "pasos": [
+            "Picar las verduras y sofreír",
+            "Añadir las lentejas y agua",
+            "Cocinar a fuego medio durante 40 minutos"
+        ]
+    },
+    {
+        "id": 11,
+        "nombre": "Batido de Plátano y Avena",
+        "descripcion": "Bebida energética para empezar el día",
+        "tiempo_preparacion": 5,
+        "calorias": 220,
+        "imagen_url": "/static/img/batido-platano.jpg",
+        "tipo_comida": "desayuno",
+        "ingredientes": [
+            {"nombre": "Plátano", "cantidad": 1, "unidad": "unidad", "producto_id": 32, "precio": 0.40},
+            {"nombre": "Leche", "cantidad": 200, "unidad": "ml", "producto_id": 33, "precio": 0.50},
+            {"nombre": "Avena", "cantidad": 30, "unidad": "g", "producto_id": 34, "precio": 0.20}
+        ],
+        "pasos": [
+            "Colocar todos los ingredientes en la licuadora",
+            "Batir hasta obtener una mezcla homogénea",
+            "Servir frío"
+        ]
+    },
+    {
+        "id": 12,
+        "nombre": "Pizza Casera de Verduras",
+        "descripcion": "Pizza con base casera y vegetales frescos",
+        "tiempo_preparacion": 60,
+        "calorias": 600,
+        "imagen_url": "/static/img/pizza-verduras.jpg",
+        "tipo_comida": "comida",
+        "ingredientes": [
+            {"nombre": "Masa para pizza", "cantidad": 1, "unidad": "unidad", "producto_id": 35, "precio": 1.50},
+            {"nombre": "Tomate frito", "cantidad": 100, "unidad": "g", "producto_id": 36, "precio": 0.60},
+            {"nombre": "Mozzarella", "cantidad": 150, "unidad": "g", "producto_id": 37, "precio": 2.00},
+            {"nombre": "Verduras variadas", "cantidad": 150, "unidad": "g", "producto_id": 38, "precio": 1.50}
+        ],
+        "pasos": [
+            "Extender la masa en una bandeja",
+            "Cubrir con tomate, queso y verduras",
+            "Hornear a 200°C durante 25 minutos"
+        ]
+    },
+    {
+        "id": 13,
+        "nombre": "Wrap de Pollo y Vegetales",
+        "descripcion": "Wrap ligero con pollo a la plancha y verduras frescas",
+        "tiempo_preparacion": 25,
+        "calorias": 350,
+        "imagen_url": "/static/img/wrap-pollo.jpg",
+        "tipo_comida": "comida",
+        "ingredientes": [
+            {"nombre": "Tortilla de trigo", "cantidad": 2, "unidad": "unidades", "producto_id": 39, "precio": 1.00},
+            {"nombre": "Pechuga de pollo", "cantidad": 200, "unidad": "g", "producto_id": 1, "precio": 2.25},
+            {"nombre": "Lechuga", "cantidad": 50, "unidad": "g", "producto_id": 5, "precio": 0.60},
+            {"nombre": "Tomate", "cantidad": 1, "unidad": "unidad", "producto_id": 40, "precio": 0.50}
+        ],
+        "pasos": [
+            "Cocinar el pollo a la plancha y cortar en tiras",
+            "Lavar y cortar las verduras",
+            "Colocar todo sobre la tortilla",
+            "Enrollar el wrap y servir"
+        ]
+    },
+    {
+        "id": 14,
+        "nombre": "Crepes de Avena con Frutas",
+        "descripcion": "Crepes saludables con avena y frutas frescas",
+        "tiempo_preparacion": 30,
+        "calorias": 280,
+        "imagen_url": "/static/img/crepes-avena.jpg",
+        "tipo_comida": "desayuno",
+        "ingredientes": [
+            {"nombre": "Harina de avena", "cantidad": 100, "unidad": "g", "producto_id": 34, "precio": 0.40},
+            {"nombre": "Leche", "cantidad": 200, "unidad": "ml", "producto_id": 33, "precio": 0.50},
+            {"nombre": "Huevos", "cantidad": 2, "unidad": "unidades", "producto_id": 12, "precio": 0.50},
+            {"nombre": "Frutas variadas", "cantidad": 100, "unidad": "g", "producto_id": 19, "precio": 1.20}
+        ],
+        "pasos": [
+            "Mezclar harina, leche y huevos",
+            "Cocinar los crepes en una sartén antiadherente",
+            "Rellenar con frutas frescas",
+            "Doblar y servir"
+        ]
+    },
+    {
+        "id": 15,
+        "nombre": "Hamburguesa Vegetal",
+        "descripcion": "Hamburguesa casera con base de legumbres",
+        "tiempo_preparacion": 40,
+        "calorias": 420,
+        "imagen_url": "/static/img/hamburguesa-vegetal.jpg",
+        "tipo_comida": "comida",
+        "ingredientes": [
+            {"nombre": "Garbanzos cocidos", "cantidad": 200, "unidad": "g", "producto_id": 41, "precio": 1.00},
+            {"nombre": "Pan de hamburguesa", "cantidad": 2, "unidad": "unidades", "producto_id": 42, "precio": 1.20},
+            {"nombre": "Zanahoria", "cantidad": 1, "unidad": "unidad", "producto_id": 30, "precio": 0.40},
+            {"nombre": "Cebolla", "cantidad": 1, "unidad": "unidad", "producto_id": 15, "precio": 0.40}
+        ],
+        "pasos": [
+            "Triturar los garbanzos con zanahoria y cebolla",
+            "Formar hamburguesas y cocinar en sartén",
+            "Montar en el pan con tus toppings favoritos"
+        ]
+    },
+    {
+        "id": 16,
+        "nombre": "Sopa de Fideos",
+        "descripcion": "Sopa reconfortante con fideos finos",
+        "tiempo_preparacion": 30,
+        "calorias": 320,
+        "imagen_url": "/static/img/sopa-fideos.jpg",
+        "tipo_comida": "cena",
+        "ingredientes": [
+            {"nombre": "Fideos finos", "cantidad": 100, "unidad": "g", "producto_id": 43, "precio": 0.60},
+            {"nombre": "Caldo de pollo", "cantidad": 500, "unidad": "ml", "producto_id": 23, "precio": 1.00},
+            {"nombre": "Zanahoria", "cantidad": 1, "unidad": "unidad", "producto_id": 30, "precio": 0.40},
+            {"nombre": "Puerro", "cantidad": 1, "unidad": "unidad", "producto_id": 44, "precio": 0.70}
+        ],
+        "pasos": [
+            "Cortar las verduras y sofreír ligeramente",
+            "Añadir el caldo y llevar a ebullición",
+            "Incorporar los fideos y cocinar 10 minutos",
+            "Servir caliente"
+        ]
+    },
+    {
+        "id": 17,
+        "nombre": "Huevos Revueltos con Champiñones",
+        "descripcion": "Desayuno rápido y nutritivo con champiñones",
+        "tiempo_preparacion": 15,
+        "calorias": 260,
+        "imagen_url": "/static/img/huevos-champinones.jpg",
+        "tipo_comida": "desayuno",
+        "ingredientes": [
+            {"nombre": "Huevos", "cantidad": 2, "unidad": "unidades", "producto_id": 12, "precio": 0.50},
+            {"nombre": "Champiñones", "cantidad": 100, "unidad": "g", "producto_id": 45, "precio": 1.00},
+            {"nombre": "Aceite de oliva", "cantidad": 1, "unidad": "cucharada", "producto_id": 4, "precio": 0.10}
+        ],
+        "pasos": [
+            "Limpiar y cortar los champiñones",
+            "Saltearlos en aceite de oliva",
+            "Añadir los huevos batidos y remover",
+            "Cocinar hasta que estén al punto"
+        ]
     }
 ]
+
 
 # ==================== RUTAS ====================
 
